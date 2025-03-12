@@ -28,7 +28,7 @@ jobs:
 
       # 运行脚本更新 .upptimerc.yml
       - name: Update .upptimerc.yml
-        run: python tools\update_upptimerc.py
+        run: python tools/update_upptimerc.py
 
       # 提交更改
       - name: Commit changes
