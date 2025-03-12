@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>网址格式生成器</title>
-    <script>
-        function generateUrls() {
-            let input = document.getElementById("urlInput").value;
-            let urls = input.split(/\s+/).filter(url => url.trim() !== "");
-            let output = urls.map(url => `- name: ${new URL(url).hostname}\n    url: ${url}`).join("\n");
-            document.getElementById("output").textContent = output;
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网址格式生成器</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    textarea, pre {
+      width: 100%;
+      height: 150px;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
-    <h2>网址格式生成器</h2>
-    <textarea id="urlInput" rows="5" cols="50" placeholder="输入网址，每行一个或用空格分隔"></textarea>
-    <br>
-    <button onclick="generateUrls()">生成格式</button>
-    <h3>生成的格式：</h3>
-    <pre id="output" style="background:#f4f4f4; padding:10px;"></pre>
+  <h2>网址格式生成器</h2>
+  <p>输入网址（每行一个或用空格分隔）：</p>
+  <textarea id="inputUrls" placeholder="例如：https://www.google.com.tw/"></textarea>
+  <button onclick="generateFormat()">生成格式</button>
+  <h3>结果：</h3>
+  <pre id="output"></pre>
+
+  <script>
+    function generateFormat() {
+      let input = document.getElementById("inputUrls").value;
+      // 拆分输入为多个网址（换行或空格分隔）
+      let urls = input.split(/\s+/).filter(url => url.trim() !== "");
+      
+      let entries = urls.map(url => {
+        try {
+          let hostname = new URL(url).hostname;
+          return { name: hostname, url: url };
+        } catch (e) {
+          return null; // 忽略无效 URL
+        }
+      }).filter(entry => entry !== null);
+
+      if (entries.length === 0) {
+        document.getElementById("output").textContent = "无有效网址";
+        return;
+      }
+
+      // 输出格式：第一行“- name: <hostname>”，第二行以两个空格开头使 "url:" 的 "u" 与第一行 "name:" 的 "n"（第三列）对齐
+      let output = entries.map(entry => {
+        return `- name: ${entry.name}\n  url: ${entry.url}`;
+      }).join("\n\n");
+
+      document.getElementById("output").textContent = output;
+    }
+  </script>
 </body>
 </html>
