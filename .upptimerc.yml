@@ -87,6 +87,8 @@ sites:
   url: https://xisu.nyc.mn/
 - name: stdu.nyc.mn
   url: https://stdu.nyc.mn/
+- name: www.85mao.com
+  url: http://www.85mao.com/
 status-website:
   cname: stdu.nyc.mn
   introMessage: This is a sample status page which uses **real-time** data from our
