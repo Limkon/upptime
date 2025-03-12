@@ -88,5 +88,23 @@
     "timeMonth": 349,
     "timeYear": 349,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "www.85mao.com",
+    "url": "http://www.85mao.com/",
+    "icon": "https://icons.duckduckgo.com/ip3/www.85mao.com.ico",
+    "slug": "www-85mao-com",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 517,
+    "timeDay": 517,
+    "timeWeek": 517,
+    "timeMonth": 517,
+    "timeYear": 517,
+    "dailyMinutesDown": {}
   }
 ]
