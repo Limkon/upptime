@@ -76,17 +76,19 @@
     "url": "https://stdu.nyc.mn/",
     "icon": "https://icons.duckduckgo.com/ip3/stdu.nyc.mn.ico",
     "slug": "stdu-nyc-mn",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 341,
-    "timeDay": 295,
-    "timeWeek": 341,
-    "timeMonth": 341,
-    "timeYear": 341,
-    "dailyMinutesDown": {}
+    "time": 328,
+    "timeDay": 247,
+    "timeWeek": 328,
+    "timeMonth": 328,
+    "timeYear": 328,
+    "dailyMinutesDown": {
+      "2025-03-14": 0
+    }
   }
 ]
