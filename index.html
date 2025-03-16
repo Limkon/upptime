@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站导航</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            overflow: hidden;
+            transition: background 1s;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .category {
+            background: white;
+            width: 300px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s;
+        }
+        h2 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @keyframes snow {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(100vh); }
+        }
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 12px;
+            user-select: none;
+            pointer-events: none;
+            animation: snow linear infinite;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 随机背景颜色
+            const colors = ["#74ebd5", "#acb6e5", "#ff9a9e", "#fad0c4", "#ffdde1", "#fbc2eb"];
+            document.body.style.background = `linear-gradient(to right, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
+            
+            // 随机化分类顺序并保留6个分类
+            let container = document.querySelector(".container");
+            let categories = Array.from(container.children);
+            categories.sort(() => Math.random() - 0.5);
+            categories.slice(0, 6).forEach(category => container.appendChild(category));
+            
+            // 飘雪效果
+            let snowContainer = document.createElement("div");
+            document.body.appendChild(snowContainer);
+            for (let i = 0; i < 50; i++) {
+                let snowflake = document.createElement("div");
+                snowflake.innerHTML = "❄";
+                snowflake.classList.add("snowflake");
+                snowflake.style.left = Math.random() * 100 + "vw";
+                snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+                snowContainer.appendChild(snowflake);
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>常用网站导航</h1>
+    <div class="container">
+        <div class="category">
+            <h2>搜索引擎</h2>
+            <ul>
+                <li><a href="https://www.google.com" target="_blank">Google</a></li>
+                <li><a href="https://www.bing.com" target="_blank">Bing</a></li>
+                <li><a href="https://www.baidu.com" target="_blank">百度</a></li>
+                <li><a href="https://www.yahoo.com" target="_blank">Yahoo</a></li>
+            </ul>
+        </div>
+        <div class="category">
+            <h2>音乐</h2>
+            <ul>
+                <li><a href="https://www.spotify.com" target="_blank">Spotify</a></li>
+                <li><a href="https://www.apple.com/music/" target="_blank">Apple Music</a></li>
+                <li><a href="https://music.youtube.com" target="_blank">YouTube Music</a></li>
+                <li><a href="https://www.soundcloud.com" target="_blank">SoundCloud</a></li>
+                <li><a href="https://www.pandora.com" target="_blank">Pandora</a></li>
+            </ul>
+        </div>
+        <div class="category">
+            <h2>新闻</h2>
+            <ul>
+                <li><a href="https://www.bbc.com" target="_blank">BBC</a></li>
+                <li><a href="https://www.cnn.com" target="_blank">CNN</a></li>
+                <li><a href="https://www.nytimes.com" target="_blank">纽约时报</a></li>
+                <li><a href="https://www.wsj.com" target="_blank">华尔街日报</a></li>
+                <li><a href="https://www.reuters.com" target="_blank">路透社</a></li>
+            </ul>
+        </div>
+        <div class="category">
+            <h2>社交媒体</h2>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://www.tiktok.com" target="_blank">TikTok</a></li>
+            </ul>
+        </div>
+        <div class="category">
+            <h2>开发者工具</h2>
+            <ul>
+                <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                <li><a href="https://stackoverflow.com" target="_blank">Stack Overflow</a></li>
+                <li><a href="https://codepen.io" target="_blank">CodePen</a></li>
+                <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></li>
+            </ul>
+        </div>
+        <div class="category">
+            <h2>学习平台</h2>
+            <ul>
+                <li><a href="https://www.khanacademy.org" target="_blank">可汗学院</a></li>
+                <li><a href="https://www.coursera.org" target="_blank">Coursera</a></li>
+                <li><a href="https://www.udemy.com" target="_blank">Udemy</a></li>
+                <li><a href="https://www.edx.org" target="_blank">edX</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
